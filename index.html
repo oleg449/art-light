@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art Light</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="categoryPanel" class="category-panel">
+  <button id="closeCategories" class="close-category">&times;</button>
+  <ul>
+    <li><a href="#">Свічки з мініатюрами картин художника</a></li>
+    <li><a href="#">Свічки десерти</a></li>
+    <li><a href="#">Свічки в гіпсових кашпо</a></li>
+    <li><a href="#">Масажні свічки</a></li>
+    <li><a href="#">Свічки з напів дорогоцінним камінням</a></li>
+    <li><a href="#">Свічки в природних контейнерах</a></li>
+    <li><a href="#">Набори для медитації</a></li>
+  </ul>
+</div>
+
+
+<header class="floating-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Art Light" class="logo" />
+
+    <nav class="nav-links">
+     <button id="openCategories" class="category-button">☰ Категорії</button>
+      <a href="#">Головна</a>
+      <a href="#">Свічки</a>
+      <a href="#">Про нас</a>
+      <a href="#">Контакти</a>
+    </nav>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Пошук..." />
+
+      <button type="submit" class="search-icon" aria-label="Пошук">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#b9825a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"/>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+  </svg>
+</button>
+
+    </div>
+  </div>
+</header>
+
+
+
+
+
+  <div id="cartIcon" onclick="openCart()">
+    🛒 <span id="cartCount">0</span>
+  </div>
+
+  <div class="hero">
+    <h2>Натуральні воскові свічки ручної роботи</h2>
+  </div>
+
+
+
+
+
+<!-- ВСТАВЬ ЭТОТ КОД ВМЕСТО ТВОЕГО -->
+<section id="products" class="products">
+  <!-- Товари будуть підвантажені через JavaScript -->
+</section>
+
+<p id="noResults" style="display: none; text-align: center; margin-top: 20px; color: #8b5e3c; font-weight: 600;">
+  Нічого не знайдено 😢
+</p>
+
+
+
+  <!-- Модальне вікно кошика -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h3>Ваш кошик</h3>
+      <div id="cartItems"></div>
+      <p><strong>Разом:</strong> <span id="cartTotal">₴0</span></p>
+      <form id="orderForm">
+  <input type="text" id="name" name="name" placeholder="Ваше ім’я" required />
+  <input type="text" id="surname" name="surname" placeholder="Прізвище" required />
+  
+<input
+  type="text"
+  name="phone"
+  placeholder="Номер телефону"
+  required
+  maxlength="10"
+  pattern="\d{10}"
+  oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)"
+/>
+
+  <input type="text" id="address" name="address" placeholder="Місто" required />
+  <select id="delivery" name="delivery" required>
+    <option value="">Оберіть пошту</option>
+    <option value="Нова пошта">Нова пошта</option>
+    <option value="Укрпошта">Укрпошта</option>
+  </select>
+ 
+<input type="text" id="warehouse" name="warehouse" placeholder="Номер відділення" required />
+ <p id="ukrpostWarning" class="warning-text" style="display: none;">Ми не працюємо з Укрпоштою</p>
+ <button type="submit" id="submitOrderBtn">Оформити замовлення</button>
+
+</form>
+
+    </div>
+  </div>
+
+  <!-- Повідомлення "Товар додано до кошика!" -->
+  <div id="cartNotification" class="cart-notification" style="display: none;">
+    <span id="cartNotificationClose" class="close-btn">&times;</span>
+    <div class="cart-notification-content">
+      Товар додано до кошика!
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Art Light — Всі права захищені</p>
+    <p><a href="https://www.instagram.com/art_candel_light?utm_source=qr&igsh=cTR4Z3JzNmV5NjV5" target="_blank">Наш Instagram</a></p>
+  </footer>
+
+
+<!-- Модальне вікно товару -->
+<div id="productModal" class="modal" onclick="closeProductModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeProductModal()">&times;</span>
+
+    <div id="productAddedMsg" class="added-to-cart-msg" style="display: none;">
+      Додано до кошику
+    </div>
+
+
+<div id="modalNotify" class="modal-added-message" style="display: none;">
+  Додано до кошику
+</div>
+
+    <div id="productModalContent"></div>
+  </div>
+</div>
+
+
+
+
+
+  <script src="script.js"></script>
+
+
+
+
+<div id="addToCartNotification">
+  ✅ Додано до кошику
+</div>
+
+</body>
+
+</html>
